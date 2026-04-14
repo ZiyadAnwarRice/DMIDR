@@ -15,7 +15,7 @@ source "$CONFIG_FILE"
 
 : "${SEQ_NAME:?SEQ_NAME is required in the config file}"
 : "${INPUT_FASTA:?INPUT_FASTA is required in the config file}"
-: "${BLAST_DB:?BLAST_DB is required in the config file}"
+#: "${BLAST_DB:?BLAST_DB is required in the config file}"
 : "${DISPREDICT_IMAGE:?DISPREDICT_IMAGE is required in the config file}"
 MAX_MUTATIONS="${MAX_MUTATIONS:-5}"
 CONTAINER_PREFIX="${CONTAINER_PREFIX:-$SEQ_NAME}"
@@ -56,7 +56,7 @@ run_original_dispredict() {
 
 if [[ "$SKIP_PSSM" != "1" ]]; then
   step "[1/4] Generate PSSM"
-  bash "$PROJECT_ROOT/scripts/run_pssm.sh" "$INPUT_FASTA" "$BLAST_DB" "$PSSM_OUT"
+  bash "$PROJECT_ROOT/scripts/run_pssm.sh" "$INPUT_FASTA" /home/SharedFiles/Wasi/BigDatasets/Databases/nr/nr "$PSSM_OUT"
 else
   step "[1/4] Skipping PSSM generation"
 fi
