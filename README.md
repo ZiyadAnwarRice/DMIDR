@@ -85,6 +85,14 @@ This will create the environment and install the dependencies listed in `pyproje
 uv sync
 ```
 
+## Installing psiblast
+Run the following scripts into your conda environment
+`wget https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.17.0+-x64-linux.tar.gz`
+`tar -xzf ncbi-blast-2.17.0+-x64-linux.tar.gz`
+`export PATH="$PWD/ncbi-blast-*/bin:$PATH"`
+`psiblast -help`
+
+
 ### Run Python scripts
 
 ```bash
